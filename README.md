@@ -1,5 +1,5 @@
 # New Life Simulator
-## It's a word game where user can experience different live endings.
+## It's a word game where user can experience different life endings.
 
 ### Game still under development
 ### For demo visit https://new-life-simulator.pages.dev/
