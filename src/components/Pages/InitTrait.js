@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTraits } from "../Information/TraitsContext";
 import { useState } from "react";
 import { Button } from "@mui/material";
@@ -8,11 +8,7 @@ import { useNavigate } from "react-router-dom";
 function InitTrait() {
   const [points, setPoints] = useState(20);
   const { traits, updateTraits } = useTraits();
-  const [initialTraits, setInitialTraits] = useState({ ...traits });
-
-  useEffect(() => {
-    setInitialTraits({ ...traits }); // This will capture the initial traits when the component mounts
-  }, []); // Empty dependency array ensures this only runs once
+  const [initialTraits] = useState({ ...traits });
 
   const handleDecrement = (trait) => {
     if (traits[trait] > 0) {

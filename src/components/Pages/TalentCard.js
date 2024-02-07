@@ -8,7 +8,7 @@ import "../PagesStyle/TalentCard.css";
 function TalentCard() {
   const [availableTalents, setAvailableTalents] = useState([]);
   const [selectedTalents, setSelectedTalents] = useState(new Set());
-  const { updateTraits, traits } = useTraits();
+  const { updateTraits } = useTraits();
   const KNOWN_TRAITS = ["strength", "intelligence", "wealth", "appearance"];
 
   const navigate = useNavigate();
