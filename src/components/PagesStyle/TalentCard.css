@@ -1,0 +1,16 @@
+.talent {
+  border: 1px gray;
+  border-radius: 5%;
+  border-style: dotted;
+  margin-bottom: 2%;
+  height: 30px;
+  text-align: center;
+}
+
+.talent.selected {
+  border: 1px solid rgb(67, 67, 247);
+}
+
+.cfn-selection-btn {
+  margin-top: 5%;
+}

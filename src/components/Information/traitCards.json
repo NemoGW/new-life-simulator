@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "description": "Born with super power. (Strength +1)",
+    "effects": { "Strength": 1 }
+  },
+  {
+    "id": 2,
+    "description": "Preterm birth. (Strength -1)",
+    "effects": { "Strength": -1 }
+  },
+  {
+    "id": 3,
+    "description": "Parents are scientists. (Intelligence +1, Wealth +1)",
+    "effects": { "Intelligence": 1, "Wealth": 1 }
+  },
+  {
+    "id": 4,
+    "description": "Will live a happy after life",
+    "effects": {},
+    "card": "die"
+  },
+  {
+    "id": 5,
+    "description": "Will not get married",
+    "effects": {}
+  },
+  {
+    "id": 6,
+    "description": "Will have 3 children",
+    "effects": {}
+  },
+  {
+    "id": 7,
+    "description": "Will not die by accident",
+    "effects": {}
+  },
+  {
+    "id": 8,
+    "description": "You are often sick, but you have a superstar apperance",
+    "effects": {}
+  },
+  {
+    "id": 9,
+    "description": "You look strong, but people think you are not very smart",
+    "effects": {}
+  },
+  {
+    "id": 10,
+    "description": "Greater chance to win lottery in life",
+    "effects": {}
+  },
+  {
+    "id": 11,
+    "description": "Very attractive to same gender",
+    "effects": {}
+  },
+  {
+    "id": 12,
+    "description": "You have OCD",
+    "effects": {}
+  },
+  {
+    "id": 13,
+    "description": "Grow old together: Your partner will live atleast until 70 years old",
+    "effects": {}
+  },
+  {
+    "id": 14,
+    "description": "Little luck: you are just alittle luckier than others",
+    "effects": {}
+  }
+]
