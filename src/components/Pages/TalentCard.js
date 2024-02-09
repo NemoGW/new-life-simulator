@@ -4,6 +4,9 @@ import talentData from "../Information/traitCards.json";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "../PagesStyle/TalentCard.css";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 
 function TalentCard() {
   const [availableTalents, setAvailableTalents] = useState([]);
@@ -34,6 +37,10 @@ function TalentCard() {
   };
 
   const handleSubmit = () => {
+    if (selectedTalents.size < 3) {
+      alert("Please select 3 talents");
+      return;
+    }
     // Object to accumulate the effects from all selected talents
     const totalEffects = {};
 
@@ -70,19 +77,19 @@ function TalentCard() {
     <div>
       <h1>Initial Talent Tree</h1>
       <p>Please pick 3 talents</p>
-      <div>
+      <List>
         {availableTalents.map((talent) => (
-          <div
+          <ListItem
             key={talent.id}
             onClick={() => handleSelectTalents(talent)}
             className={`talent ${
               selectedTalents.has(talent.id) ? "selected" : ""
             }`}
           >
-            {talent.description}
-          </div>
+            <ListItemText primary={talent.description} />
+          </ListItem>
         ))}
-      </div>
+      </List>
       <Button
         variant="outlined"
         color="primary"

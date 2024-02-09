@@ -150,5 +150,13 @@
       "description": "Finished highschool and going to college.",
       "impact": { "intelligence": 2, "wealth": -1 }
     }
+  ],
+
+  "19": [
+    {
+      "id": 19,
+      "description": "You died.",
+      "status": "over"
+    }
   ]
 }

@@ -1,0 +1,32 @@
+.main-border {
+  cursor: pointer;
+  padding: 10px;
+  max-width: 600px; /* Adjust based on your layout */
+  margin: auto;
+  margin-top: 3%;
+}
+
+.age-event {
+  border-bottom: 1px solid #ccc; /* light grey border for each event */
+  padding: 10px 0;
+}
+
+.age {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.game-border {
+  overflow-y: auto;
+  height: 400px;
+  border: 1px solid #ccc; /* light grey border */
+  background-color: #f7ffff; /* light background */
+}
+
+.end-game-btn {
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
