@@ -4,6 +4,7 @@ import { useTraits } from "../Information/TraitsContext";
 import "../PagesStyle/MainGame.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ResultPage from "./ResultPage";
 
 function MainGame() {
   const [age, setAge] = useState(0);
@@ -15,6 +16,7 @@ function MainGame() {
   const [occurredEvents, setOccurredEvents] = useState(new Set());
   const [pastEvents, setPastEvents] = useState([]);
   const [show, setShow] = useState(false);
+  const [showResult, setShowResult] = useState(false);
 
   const traitsRef = useRef(traits);
   traitsRef.current = traits;
@@ -153,23 +155,34 @@ function MainGame() {
     window.location.reload();
   };
 
+  const onViewPage = () => {
+    setShowResult(true);
+  };
+
   return (
     //Bug rendered twice for the first time
     <div className="main-border">
-      <div onClick={advanceAge} className="game-border">
-        {pastEvents.slice(1).map((e, i) => (
-          <div key={i} className="age-event" ref={eventsEndRef}>
-            <span className="age">Age {e.age}: </span>
-            <span className="event-description">
-              {e.description || "Nothing particular happened this year."}
-            </span>
-          </div>
-        ))}
-      </div>
+      {showResult ? (
+        <ResultPage />
+      ) : (
+        <div onClick={advanceAge} className="game-border">
+          {pastEvents.slice(1).map((e, i) => (
+            <div key={i} className="age-event" ref={eventsEndRef}>
+              <span className="age">Age {e.age}: </span>
+              <span className="event-description">
+                {e.description || "Nothing particular happened this year."}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div>
         {show ? (
           <div className="end-game-btn">
-            <Button variant="outlined">View Result</Button>
+            <Button variant="outlined" onClick={onViewPage}>
+              View Result
+            </Button>
             <Button variant="outlined" onClick={onRestart}>
               Restart
             </Button>

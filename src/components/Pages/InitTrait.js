@@ -77,29 +77,14 @@ function InitTrait() {
             </div>
           ))}
       </div>
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={handleRandom}
-          className="btn"
-        >
+      <div className="start-buttons">
+        <Button variant="outlined" color="primary" onClick={handleRandom}>
           Rondomly assigned
         </Button>
-      </div>
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          className="btn"
-          onClick={startGame}
-        >
+        <Button variant="outlined" color="primary" onClick={startGame}>
           Begin your life
         </Button>
       </div>
-      <div>Strength : {traits.strength}</div>
-      <div>intelligence : {traits.intelligence}</div>
-      <div>wealth : {traits.wealth}</div>
     </div>
   );
 }

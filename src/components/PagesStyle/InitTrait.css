@@ -1,4 +1,7 @@
-.btn {
+.start-buttons {
   margin-top: 5%;
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }

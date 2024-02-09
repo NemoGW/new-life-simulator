@@ -1,0 +1,15 @@
+.traits-result {
+  display: table-row;
+}
+
+.traits-result .trait-name-result,
+.traits-result .trait-value-result {
+  font-size: larger;
+  display: table-cell;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+.trait-result-description {
+  padding-left: 16px;
+}
