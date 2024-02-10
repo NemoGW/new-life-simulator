@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTraits } from "../Information/TraitsContext";
 import "../PagesStyle/ResultPage.css";
 
 function ResultPage() {
   const { traits } = useTraits();
+  const { livedAge, setLivedAge } = useState();
 
   function getStrengthMessage(value) {
     if (value < 0) return "You have the weakest body.";
@@ -21,10 +22,26 @@ function ResultPage() {
     return "";
   }
 
+  function getApperanceMessage(value) {
+    if (value < 0) return "Sad";
+    return "";
+  }
+  function getWealthMessage(value) {
+    if (value < 0) return "Sad";
+    return "";
+  }
+  function getHappinessMessage(value) {
+    if (value < 0) return "Sad";
+    return "";
+  }
+  const age = (props) => {
+    setLivedAge(props.livedAge);
+  };
+
   return (
     <div>
       {Object.keys(traits).map((trait) => (
-        <div className="traits-result">
+        <div key={trait} className="traits-result">
           <div className="trait-name-result">{trait}</div>
           <div className="trait-value-result">
             {traits[trait]}
@@ -36,6 +53,21 @@ function ResultPage() {
             {trait.toLowerCase() === "intelligence" && (
               <span className="trait-result-description">
                 {getIntelligenceMessage(traits[trait])}
+              </span>
+            )}
+            {trait.toLowerCase() === "apperance" && (
+              <span className="trait-result-description">
+                {getApperanceMessage(traits[trait])}
+              </span>
+            )}
+            {trait.toLowerCase() === "wealth" && (
+              <span className="trait-result-description">
+                {getWealthMessage(traits[trait])}
+              </span>
+            )}
+            {trait.toLowerCase() === "happiness" && (
+              <span className="trait-result-description">
+                {getHappinessMessage(traits[trait])}
               </span>
             )}
           </div>

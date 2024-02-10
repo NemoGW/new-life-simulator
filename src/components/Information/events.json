@@ -3,14 +3,14 @@
     {
       "id": 1,
       "description": "You are born as a boy",
-      "impact": {},
+      "impact": { "strength": 1 },
       "role": "boy",
       "init": "all"
     },
     {
       "id": 2,
       "description": "You are born as a girl",
-      "impact": {},
+      "impact": { "appearance": 1 },
       "role": "girl",
       "init": "all"
     }
@@ -88,6 +88,13 @@
     },
     {
       "id": 12,
+      "description": "You are seriously ill. The family spent a lot of money.",
+      "role": "all",
+      "init": "all",
+      "impact": { "wealth": -3 }
+    },
+    {
+      "id": 13,
       "description": "You started elementary school",
       "role": "all",
       "init": "all",
@@ -95,67 +102,81 @@
     }
   ],
 
-  "8-10": [
+  "8-12": [
     {
-      "id": 13,
+      "id": 14,
       "description": "Your classmates call you ugly",
       "role": "all",
       "init": "all",
       "impact": { "happiness": -1 },
       "conditions": { "apperance": "<=2" }
-    }
-  ],
-
-  "11": [
+    },
     {
-      "id": 14,
-      "description": "lol",
+      "id": 16,
+      "description": "Your friend pushed you into a pond, you died.",
+      "role": "all",
+      "init": "all",
+      "impact": {},
+      "conditions": { "strength": "<=4" },
+      "status": "accident"
+    },
+    {
+      "id": 17,
+      "description": "You often think that you can be a superhero",
       "role": "boy",
       "init": "all",
       "impact": {}
     },
     {
-      "id": 15,
-      "description": "lol",
+      "id": 18,
+      "description": "You dream one day that you can be snow white.",
+      "role": "girl",
+      "init": "all",
+      "impact": {}
+    },
+    {
+      "id": 19,
+      "description": "Your family moved into city.",
+      "role": "all",
+      "init": "poor",
+      "impact": { "wealth": 1 }
+    }
+  ],
+
+  "13-17": [
+    {
+      "id": 20,
+      "description": "You started playing league of legends.",
       "role": "boy",
+      "init": "all",
+      "impact": {}
+    },
+    {
+      "id": 21,
+      "description": "You started watching anime",
+      "role": "girl",
       "init": "all",
       "impact": {}
     }
   ],
 
-  "12": [
-    {
-      "id": 16,
-      "description": "Strength +20",
-      "role": "all",
-      "init": "all",
-      "impact": { "strength": 20 }
-    }
-  ],
-
-  "13": [
-    {
-      "id": 17,
-      "description": "Strength >=30",
-      "role": "all",
-      "init": "all",
-      "impact": {},
-      "conditions": { "strength": ">=10", "intelligence": ">=1" }
-    }
-  ],
-
   "18": [
     {
-      "id": 18,
+      "id": 22,
       "description": "Finished highschool and going to college.",
-      "impact": { "intelligence": 2, "wealth": -1 }
+      "impact": { "intelligence": 2, "wealth": -1 },
+      "role": "all",
+      "init": "all"
     }
   ],
 
   "19": [
     {
-      "id": 19,
-      "description": "You died.",
+      "id": 23,
+      "description": "Stressedout from college. You commited suicide",
+      "role": "all",
+      "init": "all",
+      "impact": {},
       "status": "over"
     }
   ]

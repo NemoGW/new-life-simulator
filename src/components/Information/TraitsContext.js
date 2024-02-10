@@ -9,10 +9,10 @@ export const useTraits = () => useContext(TraitsContext);
 // Provider component that wraps your app and makes the traits context available everywhere
 export const TraitsProvider = ({ children }) => {
   const [traits, setTraits] = useState({
-    strength: 0,
-    intelligence: 0,
-    wealth: 0,
     appearance: 0,
+    intelligence: 0,
+    strength: 0,
+    wealth: 0,
     happiness: 0,
   });
 

@@ -7,11 +7,13 @@ import "../PagesStyle/TalentCard.css";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import { useTalents } from "../Information/TalentContext";
 
 function TalentCard() {
   const [availableTalents, setAvailableTalents] = useState([]);
   const [selectedTalents, setSelectedTalents] = useState(new Set());
   const { updateTraits } = useTraits();
+  const { addTalent } = useTalents();
   const KNOWN_TRAITS = ["strength", "intelligence", "wealth", "appearance"];
 
   const navigate = useNavigate();
@@ -41,6 +43,7 @@ function TalentCard() {
       alert("Please select 3 talents");
       return;
     }
+
     // Object to accumulate the effects from all selected talents
     const totalEffects = {};
 
@@ -67,7 +70,8 @@ function TalentCard() {
 
     // After accumulating effects from all selected talents, update the traits
     updateTraits(totalEffects, true);
-
+    addTalent(selectedTalents);
+    console.log(selectedTalents);
     navigate("/trait");
   };
 

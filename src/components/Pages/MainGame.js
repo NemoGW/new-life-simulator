@@ -5,6 +5,7 @@ import "../PagesStyle/MainGame.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ResultPage from "./ResultPage";
+import { useTalents } from "../Information/TalentContext";
 
 function MainGame() {
   const [age, setAge] = useState(0);
@@ -17,6 +18,7 @@ function MainGame() {
   const [pastEvents, setPastEvents] = useState([]);
   const [show, setShow] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const { selectedTalents } = useTalents();
 
   const traitsRef = useRef(traits);
   traitsRef.current = traits;
@@ -31,7 +33,8 @@ function MainGame() {
   const getAgeRangeKey = (age) => {
     if (age >= 2 && age <= 5) return "2-5";
     if (age >= 6 && age <= 7) return "6-7";
-    if (age >= 8 && age <= 10) return "8-10";
+    if (age >= 8 && age <= 12) return "8-12";
+    if (age >= 13 && age <= 17) return "13-17";
 
     return age.toString();
   };
@@ -108,17 +111,29 @@ function MainGame() {
     updateTraits(totalEffects, true);
   };
 
+  const handleTalent = (event) => {
+    if (event.status === "accident") {
+      if (selectedTalents.has(4)) {
+        event.status = "";
+        event.description = "However, a superman came to save you!";
+        selectedTalents.delete(4);
+      } else {
+        event.status = "over";
+      }
+    }
+  };
+
   const handleAgeSpecificEvent = (eventForCurrentAge) => {
     if (age === 0) {
       setGender(eventForCurrentAge.role);
     } else if (age === 1) {
       setInitFamily(eventForCurrentAge.init);
     }
+    handleTalent(eventForCurrentAge);
 
     if (eventForCurrentAge.status === "over") {
       setGameOver(true);
     }
-
     setCurrentEvent(eventForCurrentAge);
     setOccurredEvents(occurredEvents.add(eventForCurrentAge.id));
     setPastEvents((pastEvents) => [
@@ -137,7 +152,6 @@ function MainGame() {
   useEffect(() => {
     let eventForCurrentAge = selectEventForAge(age);
     handleAgeSpecificEvent(eventForCurrentAge);
-    scrollToBottom();
   }, [age]);
 
   const advanceAge = () => {
@@ -146,6 +160,7 @@ function MainGame() {
     } else {
       setShow(true);
     }
+    scrollToBottom();
   };
 
   const navigate = useNavigate();
@@ -163,7 +178,7 @@ function MainGame() {
     //Bug rendered twice for the first time
     <div className="main-border">
       {showResult ? (
-        <ResultPage />
+        <ResultPage livedAge={age} />
       ) : (
         <div onClick={advanceAge} className="game-border">
           {pastEvents.slice(1).map((e, i) => (

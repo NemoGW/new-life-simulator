@@ -16,9 +16,8 @@
   },
   {
     "id": 4,
-    "description": "Will live a happy after life",
-    "effects": {},
-    "card": "die"
+    "description": "Saves you from accidents",
+    "effects": {}
   },
   {
     "id": 5,
@@ -32,7 +31,7 @@
   },
   {
     "id": 7,
-    "description": "Will not die by accident",
+    "description": "Will eat alot",
     "effects": {}
   },
   {
