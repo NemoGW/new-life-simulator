@@ -178,10 +178,10 @@ function MainGame() {
     //Bug rendered twice for the first time
     <div className="main-border">
       {showResult ? (
-        <ResultPage livedAge={age} />
+        <ResultPage />
       ) : (
         <div onClick={advanceAge} className="game-border">
-          {pastEvents.slice(1).map((e, i) => (
+          {pastEvents.map((e, i) => (
             <div key={i} className="age-event" ref={eventsEndRef}>
               <span className="age">Age {e.age}: </span>
               <span className="event-description">
